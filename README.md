@@ -1,4 +1,26 @@
-# ERPNext-V14-dev-using-container
+# Getting Started
+
+## Prerequisites
+
+In order to start developing you need to satisfy the following prerequisites:
+
+- Docker
+- docker-compose
+- user added to docker group
+
+## Use VSCode Remote Containers extension
+
+For most people getting started with Frappe development, the best solution is to use [VSCode Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers).
+
+Before opening the folder in container, determine the database that you want to use. The default is MariaDB.
+If you want to use PostgreSQL instead, edit `.devcontainer/docker-compose.yml` and uncomment the section for `postgresql` service, and you may also want to comment `mariadb` as well.
+
+VSCode should automatically inquire you to install the required extensions, that can also be installed manually as follows:
+
+- Install Dev Containers for VSCode
+  - through command line `code --install-extension ms-vscode-remote.remote-containers`
+  - clicking on the Install button in the Vistual Studio Marketplace: [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+  - View: Extensions command in VSCode (Windows: Ctrl+Shift+X; macOS: Cmd+Shift+X) then search for extension `ms-vscode-remote.remote-containers`
 
 # Bootstrap Containers for development
 
@@ -31,7 +53,7 @@ bench set-config -g redis_queue redis://redis-queue:6379
 bench set-config -g redis_socketio redis://redis-queue:6379
 ```
 
-# reate a new site with bench
+# Create a new site with bench
 
 ```
 bench new-site --mariadb-root-password 123 --admin-password admin --no-mariadb-socket development.localhost
